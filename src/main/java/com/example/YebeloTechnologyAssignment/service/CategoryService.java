@@ -1,7 +1,6 @@
 package com.example.YebeloTechnologyAssignment.service;
 
 import com.example.YebeloTechnologyAssignment.model.Category;
-import com.example.YebeloTechnologyAssignment.model.DemoCategoryCode;
 import com.example.YebeloTechnologyAssignment.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,12 +41,14 @@ public class CategoryService {
 
     public List<Category> fetchNextNumber(String categoryCode){
         Category category = findByCategoryCode(categoryCode);
+        System.out.println(category);
         if(category!=null){
             Category newCategory = updateByValue(category);
             return List.of(category,newCategory);
         }
         else{
-            save(Category.builder().categoryCode(categoryCode).value(0L).build());
+            Category x = Category.builder().categoryCode(categoryCode).value(0L).build();
+            categoryRepository.save(x);
             Category newCategory = updateByValue(category);
             return List.of(category,newCategory);
         }
