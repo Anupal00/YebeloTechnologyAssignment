@@ -1,0 +1,7 @@
+In this Application I have used Spring MVC (model-view-controller) design pattern.
+Controller --> Service --> DataAccessObject (DAO) -->Model
+
+model the entity design into database which is created using ORM (hibernate)
+then Repository helps to access or modify data using JpaRepository interface. Also we can write custom sql query.
+then service layer holds all the business logic which are required in website.
+and finally controller helps to route the url and also handle the request , response from user
