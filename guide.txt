@@ -1,0 +1,37 @@
+step 1:- start the application using YebeloTechnologyAssignmentApplication.java class
+step 2:- Make a get request at "http://localhost:8080/FetchNextNumber" and also add a request-body in JSON like
+                {
+                    "categoryCode" : "003"
+                }
+step 3:- the api return a JSON output like this
+                [
+                    {
+                        "id": 3,
+                        "categoryCode": "003",
+                        "value": 45
+                    },
+                    {
+                        "id": 3,
+                        "categoryCode": "003",
+                        "value": 46
+                    }
+                ]
+
+        Here the old value is 45 and new value is 46. The categoryCode is already existed in database.
+step 4:- If a category code does not exist in database, the api create a record with the help of categoryCode and then update the value.
+            {
+                "categoryCode" : "009"
+            }
+
+            [
+                {
+                    "id": 102,
+                    "categoryCode": "009",
+                    "value": 0
+                },
+                {
+                    "id": 102,
+                    "categoryCode": "009",
+                    "value": 10
+                }
+            ]
